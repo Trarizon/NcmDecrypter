@@ -16,7 +16,7 @@
 `NcmDecrypter`是控制台程序，`Utility`里包含了设置metadata的代码，这里有用到`TagLibSharp`包。
 顺带一提mp3自带不少信息，所以metadata主要是图片。
 
-`NcmDecrypter.Light`是简化版程序，去掉了包依赖，也没法设置metadata（反正dnt不能导带图片的mp3，de谱师用这个正好）
+`NcmDecrypter.Light`是简化版程序，去掉了包依赖，也没法设置metadata。（一般来说就够了，我不想这玩意还要拖着个dll
 
 ## 使用说明
 
