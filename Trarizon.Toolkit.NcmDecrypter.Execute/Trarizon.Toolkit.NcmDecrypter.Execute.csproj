@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -8,7 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Trarizon.Toolkit.NcmDecrypter.Core\Trarizon.Toolkit.NcmDecrypter.Core.csproj" />
+    <PackageReference Include="TagLibSharp" Version="2.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Trarizon.Toolkit.NcmDecrypter\Trarizon.Toolkit.NcmDecrypter.csproj" />
   </ItemGroup>
 
 </Project>
