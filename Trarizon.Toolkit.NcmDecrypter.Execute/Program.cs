@@ -47,8 +47,7 @@ static void Run(IReadOnlyList<string> args)
             var fileName = file.Name;
             file.Close();
 
-            if (containsMetadata)
-                SetMetadata(fileName, metadata);
+            SetMetadata(fileName, metadata);
         } catch (Exception ex) {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"Error:   {Path.GetFileName(ncmPath)}: {ex.Message}");
@@ -68,9 +67,10 @@ static void SetMetadata(string fileName, ExtraMetadata metadata)
     var tag = tagFile.Tag;
 
     tag.Title = metadata.MusicName;
-    tag.Performers = metadata.Performers?.ToArray();
+    tag.Performers = metadata.Performers;
     tag.Album = metadata.Album;
-    tag.Pictures = [new Picture(new ByteVector(metadata.Image))];
+    if (metadata.Image is not null)
+        tag.Pictures = [new Picture(new ByteVector(metadata.Image))];
     if (metadata.Comment is not null)
         tag.Comment = metadata.Comment;
     tagFile.Save();

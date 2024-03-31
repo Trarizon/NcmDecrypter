@@ -6,9 +6,9 @@ internal static class Utils
 {
     public static int ReadInt32(this Stream stream)
     {
-        int result = 0;
-        stream.Read(MemoryMarshal.CreateSpan(ref Unsafe.As<int, byte>(ref result), sizeof(byte)));
-        return result;
+        Span<byte> bytes = stackalloc byte[sizeof(int)];
+        stream.Read(bytes);
+        return Unsafe.ReadUnaligned<int>(ref MemoryMarshal.GetReference(bytes));
     }
 
 
